@@ -53,30 +53,39 @@ const ListingCard: React.FC<ListingCardProps> = ({
 
   const price = useMemo(() => {
     if (reservation) {
-      return reservation.totalPrice;
+      return reservation.totalPrice
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
-    return data.price;
+    return data.price
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }, [reservation, data.price]);
 
   const reservationDate = useMemo(() => {
     if (!reservation) {
       return null;
     }
-  
+
     const start = new Date(reservation.startDate);
     const end = new Date(reservation.endDate);
 
-    return `${format(start, 'PP')} - ${format(end, 'PP')}`;
+    return `${format(start, "PP")} - ${format(
+      end,
+      "PP"
+    )}`;
   }, [reservation]);
 
   return (
-    <div 
-      onClick={() => router.push(`/listings/${data.id}`)} 
+    <div
+      onClick={() =>
+        router.push(`/listings/${data.id}`)
+      }
       className="col-span-1 cursor-pointer group"
     >
       <div className="flex flex-col gap-2 w-full">
-        <div 
+        <div
           className="
             aspect-square 
             w-full 
@@ -97,13 +106,15 @@ const ListingCard: React.FC<ListingCardProps> = ({
             src={data.imageSrc}
             alt="Listing"
           />
-          <div className="
+          <div
+            className="
             absolute
             top-3
             right-3
-          ">
-            <HeartButton 
-              listingId={data.id} 
+          "
+          >
+            <HeartButton
+              listingId={data.id}
               currentUser={currentUser}
             />
           </div>
@@ -116,23 +127,25 @@ const ListingCard: React.FC<ListingCardProps> = ({
         </div>
         <div className="flex flex-row items-center gap-1">
           <div className="font-semibold">
-            $ {price}
+            ₹ {price}
           </div>
           {!reservation && (
-            <div className="font-light">night</div>
+            <div className="font-light">
+              night
+            </div>
           )}
         </div>
         {onAction && actionLabel && (
           <Button
             disabled={disabled}
             small
-            label={actionLabel} 
+            label={actionLabel}
             onClick={handleCancel}
           />
         )}
       </div>
     </div>
-   );
+  );
 }
  
 export default ListingCard;

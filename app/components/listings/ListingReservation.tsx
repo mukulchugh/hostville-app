@@ -26,8 +26,10 @@ const ListingReservation: React.FC<
   disabled,
   disabledDates
 }) => {
-  return ( 
-    <div 
+
+  console.log(disabledDates);
+  return (
+    <div
       className="
       bg-white 
         rounded-xl 
@@ -36,10 +38,18 @@ const ListingReservation: React.FC<
         overflow-hidden
       "
     >
-      <div className="
-      flex flex-row items-center gap-1 p-4">
+      <div
+        className="
+      flex flex-row items-center gap-1 p-4"
+      >
         <div className="text-2xl font-semibold">
-          $ {price}
+          ₹{" "}
+          {price
+            .toString()
+            .replace(
+              /\B(?=(\d{3})+(?!\d))/g,
+              ","
+            )}
         </div>
         <div className="font-light text-neutral-600">
           night
@@ -49,19 +59,20 @@ const ListingReservation: React.FC<
       <Calendar
         value={dateRange}
         disabledDates={disabledDates}
-        onChange={(value) => 
-          onChangeDate(value.selection)}
+        onChange={(value) =>
+          onChangeDate(value.selection)
+        }
       />
       <hr />
       <div className="p-4">
-        <Button 
-          disabled={disabled} 
-          label="Reserve" 
+        <Button
+          disabled={disabled}
+          label="Reserve"
           onClick={onSubmit}
         />
       </div>
       <hr />
-      <div 
+      <div
         className="
           p-4 
           flex 
@@ -72,15 +83,19 @@ const ListingReservation: React.FC<
           text-lg
         "
       >
+        <div>Total</div>
         <div>
-          Total
-        </div>
-        <div>
-          $ {totalPrice}
+          ₹{" "}
+          {totalPrice
+            .toString()
+            .replace(
+              /\B(?=(\d{3})+(?!\d))/g,
+              ","
+            )}
         </div>
       </div>
     </div>
-   );
+  );
 }
  
 export default ListingReservation;
