@@ -2,11 +2,7 @@
 
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import {
-  FieldValues,
-  SubmitHandler,
-  useForm,
-} from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
@@ -35,11 +31,8 @@ const RentModal = () => {
   const router = useRouter();
   const rentModal = useRentModal();
 
-  const [isLoading, setIsLoading] =
-    useState(false);
-  const [step, setStep] = useState(
-    STEPS.CATEGORY
-  );
+  const [isLoading, setIsLoading] = useState(false);
+  const [step, setStep] = useState(STEPS.CATEGORY);
 
   const {
     register,
@@ -77,10 +70,7 @@ const RentModal = () => {
     [location]
   );
 
-  const setCustomValue = (
-    id: string,
-    value: any
-  ) => {
+  const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
       shouldDirty: true,
       shouldTouch: true,
@@ -96,9 +86,7 @@ const RentModal = () => {
     setStep((value) => value + 1);
   };
 
-  const onSubmit: SubmitHandler<FieldValues> = (
-    data
-  ) => {
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     if (step !== STEPS.PRICE) {
       return onNext();
     }
@@ -155,17 +143,9 @@ const RentModal = () => {
         "
       >
         {categories.map((item) => (
-          <div
-            key={item.label}
-            className="col-span-1"
-          >
+          <div key={item.label} className="col-span-1">
             <CategoryInput
-              onClick={(category) =>
-                setCustomValue(
-                  "category",
-                  category
-                )
-              }
+              onClick={(category) => setCustomValue("category", category)}
               selected={category === item.label}
               label={item.label}
               icon={item.icon}
@@ -185,9 +165,7 @@ const RentModal = () => {
         />
         <CountrySelect
           value={location}
-          onChange={(value) =>
-            setCustomValue("location", value)
-          }
+          onChange={(value) => setCustomValue("location", value)}
         />
         <Map center={location?.latlng} />
       </div>
@@ -202,27 +180,21 @@ const RentModal = () => {
           subtitle="What amenitis do you have?"
         />
         <Counter
-          onChange={(value) =>
-            setCustomValue("guestCount", value)
-          }
+          onChange={(value) => setCustomValue("guestCount", value)}
           value={guestCount}
           title="Guests"
           subtitle="How many guests do you allow?"
         />
         <hr />
         <Counter
-          onChange={(value) =>
-            setCustomValue("roomCount", value)
-          }
+          onChange={(value) => setCustomValue("roomCount", value)}
           value={roomCount}
           title="Rooms"
           subtitle="How many rooms do you have?"
         />
         <hr />
         <Counter
-          onChange={(value) =>
-            setCustomValue("bathroomCount", value)
-          }
+          onChange={(value) => setCustomValue("bathroomCount", value)}
           value={bathroomCount}
           title="Bathrooms"
           subtitle="How many bathrooms do you have?"
@@ -239,9 +211,7 @@ const RentModal = () => {
           subtitle="Show guests what your place looks like!"
         />
         <ImageUpload
-          onChange={(value) =>
-            setCustomValue("imageSrc", value)
-          }
+          onChange={(value) => setCustomValue("imageSrc", value)}
           value={imageSrc}
         />
       </div>
@@ -305,11 +275,7 @@ const RentModal = () => {
       actionLabel={actionLabel}
       onSubmit={handleSubmit(onSubmit)}
       secondaryActionLabel={secondaryActionLabel}
-      secondaryAction={
-        step === STEPS.CATEGORY
-          ? undefined
-          : onBack
-      }
+      secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
       onClose={rentModal.onClose}
       body={bodyContent}
     />

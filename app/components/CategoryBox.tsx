@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import qs from 'query-string';
+import qs from "query-string";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 import { IconType } from "react-icons";
 
 interface CategoryBoxProps {
-  icon: IconType,
+  icon: IconType;
   label: string;
   selected?: boolean;
 }
@@ -21,24 +21,27 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
 
   const handleClick = useCallback(() => {
     let currentQuery = {};
-    
+
     if (params) {
-      currentQuery = qs.parse(params.toString())
+      currentQuery = qs.parse(params.toString());
     }
 
     const updatedQuery: any = {
       ...currentQuery,
-      category: label
-    }
+      category: label,
+    };
 
-    if (params?.get('category') === label) {
+    if (params?.get("category") === label) {
       delete updatedQuery.category;
     }
 
-    const url = qs.stringifyUrl({
-      url: '/',
-      query: updatedQuery
-    }, { skipNull: true });
+    const url = qs.stringifyUrl(
+      {
+        url: "/",
+        query: updatedQuery,
+      },
+      { skipNull: true }
+    );
 
     router.push(url);
   }, [label, router, params]);
@@ -50,31 +53,22 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         flex 
         items-center 
         justify-center 
-        gap-2
-        p-5
-        border-b-2
-        border-l-2
-        hover:text-neutral-800
+        gap-1
+        px-3
+        py-2
+        rounded-md
         transition
         cursor-pointer
-        ${
-          selected
-            ? "border-b-neutral-800"
-            : "border-transparent"
-        }
-        ${
-          selected
-            ? "text-neutral-800"
-            : "text-neutral-500"
-        }
+        mb-4
+        ${selected ? "border-b-neutral-800" : "border-transparent"}
+        ${selected ? "text-black" : "text-neutral-500"}
+        ${selected ? "bg-gray-100" : "bg-transparent"}
       `}
     >
-      <Icon size={26} />
-      <div className="font-medium text-sm">
-        {label}
-      </div>
+      <Icon size={28} />
+      <div className="font-medium text-sm">{label}</div>
     </div>
   );
-}
- 
+};
+
 export default CategoryBox;

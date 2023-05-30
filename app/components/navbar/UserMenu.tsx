@@ -17,9 +17,7 @@ interface UserMenuProps {
   currentUser?: SafeUser | null;
 }
 
-const UserMenu: React.FC<UserMenuProps> = ({
-  currentUser,
-}) => {
+const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const router = useRouter();
 
   const loginModal = useLoginModal();
@@ -60,11 +58,34 @@ const UserMenu: React.FC<UserMenuProps> = ({
         >
           Hostville your home
         </div>
+
+        <div
+          className="hidden md:flex items-center 
+          gap-2 
+          text-sm
+          font-semibold
+          
+          "
+        >
+          <Avatar src={currentUser?.image} />
+          <p
+            className="
+                text-sm
+                font-semibold
+                text-neutral-800
+                truncate
+                w-24
+                md:w-32
+              "
+          >
+            {currentUser?.name}
+          </p>
+        </div>
         <div
           onClick={toggleOpen}
           className="
           p-4
-          md:py-1
+          md:py-2
           md:px-2
           border-[1px] 
           border-neutral-200 
@@ -78,10 +99,14 @@ const UserMenu: React.FC<UserMenuProps> = ({
           transition
           "
         >
-          <AiOutlineMenu />
-          <div className="hidden md:block">
-            <Avatar src={currentUser?.image} />
-          </div>
+          <AiOutlineMenu
+            className="
+              text-neutral-500
+              text-lg
+              md:text-xl
+
+            "
+          />
         </div>
       </div>
       {isOpen && (
@@ -104,48 +129,28 @@ const UserMenu: React.FC<UserMenuProps> = ({
               <>
                 <MenuItem
                   label="My trips"
-                  onClick={() =>
-                    router.push("/trips")
-                  }
+                  onClick={() => router.push("/trips")}
                 />
                 <MenuItem
                   label="My favorites"
-                  onClick={() =>
-                    router.push("/favorites")
-                  }
+                  onClick={() => router.push("/favorites")}
                 />
                 <MenuItem
                   label="My reservations"
-                  onClick={() =>
-                    router.push("/reservations")
-                  }
+                  onClick={() => router.push("/reservations")}
                 />
                 <MenuItem
                   label="My properties"
-                  onClick={() =>
-                    router.push("/properties")
-                  }
+                  onClick={() => router.push("/properties")}
                 />
-                <MenuItem
-                  label="Become a host"
-                  onClick={rentModal.onOpen}
-                />
+                <MenuItem label="Become a host" onClick={rentModal.onOpen} />
                 <hr />
-                <MenuItem
-                  label="Logout"
-                  onClick={() => signOut()}
-                />
+                <MenuItem label="Logout" onClick={() => signOut()} />
               </>
             ) : (
               <>
-                <MenuItem
-                  label="Login"
-                  onClick={loginModal.onOpen}
-                />
-                <MenuItem
-                  label="Sign up"
-                  onClick={registerModal.onOpen}
-                />
+                <MenuItem label="Login" onClick={loginModal.onOpen} />
+                <MenuItem label="Sign up" onClick={registerModal.onOpen} />
               </>
             )}
           </div>

@@ -4,7 +4,8 @@ import EmptyState from "@/app/components/EmptyState";
 
 import getListings, { IListingsParams } from "@/app/actions/getListings";
 import getCurrentUser from "@/app/actions/getCurrentUser";
-import ClientOnly from "./components/ClientOnly";
+import ClientOnly from "../components/ClientOnly";
+import Heading from "../components/Heading";
 
 interface HomeProps {
   searchParams: IListingsParams;
@@ -25,9 +26,14 @@ const Home = async ({ searchParams }: HomeProps) => {
   return (
     <ClientOnly>
       <Container>
+        <Heading
+          title="Explore our listings"
+          subtitle="Find your perfect place to stay, from beach houses to cabins to condos and more."
+        />
+
         <div
           className="
-            pt-24
+            pt-12
             grid 
             grid-cols-1 
             sm:grid-cols-2 
