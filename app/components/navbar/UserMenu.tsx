@@ -12,6 +12,7 @@ import { SafeUser } from "@/app/types";
 
 import MenuItem from "./MenuItem";
 import Avatar from "../Avatar";
+import Link from "next/link";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
@@ -58,18 +59,17 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
         >
           Hostville your home
         </div>
-
-        <div
-          className="hidden md:flex items-center 
+        <Link href="/profile">
+          <div
+            className="hidden md:flex items-center 
           gap-2 
           text-sm
           font-semibold
-          
           "
-        >
-          <Avatar src={currentUser?.image} />
-          <p
-            className="
+          >
+            <Avatar src={currentUser?.image} />
+            <p
+              className="
                 text-sm
                 font-semibold
                 text-neutral-800
@@ -77,10 +77,11 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 w-24
                 md:w-32
               "
-          >
-            {currentUser?.name}
-          </p>
-        </div>
+            >
+              {currentUser?.name}
+            </p>
+          </div>
+        </Link>
         <div
           onClick={toggleOpen}
           className="

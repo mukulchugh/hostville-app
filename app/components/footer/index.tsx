@@ -5,7 +5,7 @@ import { BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
 const Footer: React.FC = () => {
   return (
     <footer
-      className="bg-black text-white bottom-0
+      className="bg-black text-white 
         w-full
     absolute
         
