@@ -1,25 +1,12 @@
 import React, { useState } from "react";
-import { CommentSection } from "react-comments-section";
+import {
+  CommentSection,
+  CommentData,
+  CurrentUser,
+} from "react-comments-section";
 import "react-comments-section/dist/index.css";
 
-type CommentData = {
-  userId: string;
-  comId: string;
-  fullName: string;
-  avatarUrl: string;
-  userProfile: string;
-  text: string;
-  replies: CommentData[];
-};
-
-type CurrentUser = {
-  currentUserId: string;
-  currentUserImg: string;
-  currentUserProfile: string;
-  currentUserFullName: string;
-};
-
-const CommentsWidget: React.FC = () => {
+const AdvancedComponent: React.FC = () => {
   const [data] = useState<CommentData[]>([
     {
       userId: "01a",
@@ -78,4 +65,4 @@ const CommentsWidget: React.FC = () => {
   );
 };
 
-export default CommentsWidget;
+export default AdvancedComponent;

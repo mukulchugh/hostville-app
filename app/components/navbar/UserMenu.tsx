@@ -55,9 +55,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             hover:bg-neutral-100 
             transition 
             cursor-pointer
+            bg-neutral-50
           "
         >
-          Hostville your home
+          Add Listing
         </div>
         <Link href="/profile">
           <div
@@ -93,7 +94,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           flex 
           flex-row 
           items-center 
-          gap-3 
+          gap-3 j
           rounded-full 
           cursor-pointer 
           hover:shadow-md 
