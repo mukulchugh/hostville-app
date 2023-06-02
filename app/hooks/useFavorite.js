@@ -3,8 +3,6 @@ import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { toast } from "sonner";
 
-import { SafeUser } from "@/app/types";
-
 import useLoginModal from "./useLoginModal";
 
 const useFavorite = ({ listingId, currentUser }) => {
