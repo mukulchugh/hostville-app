@@ -21,9 +21,10 @@ const Home = async ({ searchParams }) => {
   return (
     <ClientOnly>
       <Container>
-        <div
-          className="
-            pt-24
+        <section>
+          <h1 className="font-bold text-2xl py-6 mt-12">Stays</h1>
+          <div
+            className="
             grid 
             grid-cols-1 
             sm:grid-cols-2 
@@ -31,17 +32,39 @@ const Home = async ({ searchParams }) => {
             lg:grid-cols-4
             xl:grid-cols-5
             2xl:grid-cols-6
-            gap-8
-          "
-        >
-          {listings.map((listing) => (
-            <ListingCard
-              currentUser={currentUser}
-              key={listing.id}
-              data={listing}
-            />
-          ))}
-        </div>
+            gap-8"
+          >
+            {listings.map((listing) => (
+              <ListingCard
+                currentUser={currentUser}
+                key={listing.id}
+                data={listing}
+              />
+            ))}
+          </div>
+        </section>
+        <section>
+          <h1 className="font-bold text-2xl py-6 mt-12">Experiences</h1>
+          <div
+            className="
+            grid 
+            grid-cols-1 
+            sm:grid-cols-2 
+            md:grid-cols-3 
+            lg:grid-cols-4
+            xl:grid-cols-5
+            2xl:grid-cols-6
+            gap-8"
+          >
+            {listings.map((listing) => (
+              <ListingCard
+                currentUser={currentUser}
+                key={listing.id}
+                data={listing}
+              />
+            ))}
+          </div>
+        </section>
       </Container>
     </ClientOnly>
   );

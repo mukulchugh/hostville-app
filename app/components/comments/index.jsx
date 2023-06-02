@@ -2,7 +2,7 @@ import React from "react";
 import { CommentSection } from "react-comments-section";
 import "./styles.css";
 
-const CommentsWidget = () => {
+const ReviewsWidget = () => {
   const data = [
     {
       userId: "01a",
@@ -72,4 +72,4 @@ const CommentsWidget = () => {
   );
 };
 
-export default CommentsWidget;
+export default ReviewsWidget;

@@ -4,7 +4,11 @@ import { BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white footer bottom-0">
+    <footer
+      className="bg-black text-white footer bottom-0
+    mb-0 static w-full
+    "
+    >
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           <div className="col-span-1">

@@ -13,7 +13,7 @@ import Footer from "./components/footer";
 
 export const metadata = {
   title: "Hostville",
-  description: "Hostville Clone",
+  description: "Hostville",
 };
 
 export default async function Layout({ children }) {

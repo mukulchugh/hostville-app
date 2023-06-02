@@ -11,7 +11,7 @@ import ListingCategory from "./ListingCategory";
 const Map = dynamic(() => import("../Map"), {
   ssr: false,
 });
-import CommentsWidget from "../comments";
+import ReviewsWidget from "../comments";
 
 const ListingInfo = ({
   user,
@@ -75,7 +75,7 @@ const ListingInfo = ({
       <hr />
       <Map center={coordinates} />
 
-      {/* Comment Section */}
+      {/* Review Section */}
       <div
         className="
             flex 
@@ -90,7 +90,7 @@ const ListingInfo = ({
               font-semibold
             "
         >
-          <CommentsWidget />
+          <ReviewsWidget />
         </div>
       </div>
     </div>
