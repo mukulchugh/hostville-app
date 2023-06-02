@@ -2,14 +2,7 @@ import { NextResponse } from "next/server";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import prisma from "@/app/libs/prismadb";
 
-interface IParams {
-  commentId?: string;
-}
-
-export async function DELETE(
-  request: Request,
-  { params }: { params: IParams }
-) {
+const DELETE = async (request, { params }) => {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
@@ -30,4 +23,6 @@ export async function DELETE(
   });
 
   return NextResponse.json(comment);
-}
+};
+
+export default DELETE;

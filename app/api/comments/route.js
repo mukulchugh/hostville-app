@@ -2,34 +2,23 @@ import { NextResponse } from "next/server";
 import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 
-interface RequestBody {
-  title: string;
-  description: string;
-  imageSrc: string;
-  category: string;
-  roomCount: number;
-  bathroomCount: number;
-  guestCount: number;
-  location: { value: string };
-  price: string;
-}
-
-export async function POST(request: Request) {
+const POST = async (request) => {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
     return NextResponse.error();
   }
 
-  const body = (await request.json()) as RequestBody;
+  const body = await request.json();
+  const requestData = body;
 
-  for (const key in body) {
-    if (!body[key]) {
+  for (const key in requestData) {
+    if (!requestData[key]) {
       return NextResponse.error();
     }
   }
 
-  const {} = body;
+  const {} = requestData;
 
   const comment = await prisma.comment.create({
     data: {
@@ -38,4 +27,6 @@ export async function POST(request: Request) {
   });
 
   return NextResponse.json(comment);
-}
+};
+
+export default POST;

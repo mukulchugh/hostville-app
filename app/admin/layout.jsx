@@ -1,13 +1,8 @@
-"use client";
 import { useState, useEffect } from "react";
 import getCurrentUser from "../actions/getCurrentUser";
 import ClientOnly from "../components/ClientOnly";
 
-export default function AdminLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function AdminLayout({ children }) {
   return (
     <html lang="en">
       <body>

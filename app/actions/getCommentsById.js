@@ -1,10 +1,6 @@
 import prisma from "@/app/libs/prismadb";
 
-interface IParams {
-  listingId?: string;
-}
-
-export default async function getListingById(params: IParams) {
+const getListingById = async (params) => {
   try {
     const { listingId } = params;
 
@@ -31,7 +27,9 @@ export default async function getListingById(params: IParams) {
         emailVerified: listing.user.emailVerified?.toString() || null,
       },
     };
-  } catch (error: any) {
+  } catch (error) {
     throw new Error(error);
   }
-}
+};
+
+export default getListingById;
