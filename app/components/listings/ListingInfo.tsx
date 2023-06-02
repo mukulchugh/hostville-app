@@ -106,7 +106,9 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
               text-2xl 
               font-semibold
             "
-        ></div>
+        >
+          <CommentsWidget />
+        </div>
       </div>
     </div>
   );

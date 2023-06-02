@@ -52,10 +52,14 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             py-3 
             px-4 
             rounded-full 
-            hover:bg-neutral-100 
+            hover:bg-neutral-100
             transition 
             cursor-pointer
-            bg-neutral-50
+            bg-white
+            border 
+            border-neutral-300
+            hover:border-neutral-100
+
           "
         >
           Add Listing

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Range } from "react-date-range";
 
@@ -7,7 +7,7 @@ import Calendar from "../inputs/Calendar";
 
 interface ListingReservationProps {
   price: number;
-  dateRange: Range,
+  dateRange: Range;
   totalPrice: number;
   onChangeDate: (value: Range) => void;
   onSubmit: () => void;
@@ -15,21 +15,18 @@ interface ListingReservationProps {
   disabledDates: Date[];
 }
 
-const ListingReservation: React.FC<
-  ListingReservationProps
-> = ({
+const ListingReservation: React.FC<ListingReservationProps> = ({
   price,
   dateRange,
   totalPrice,
   onChangeDate,
   onSubmit,
   disabled,
-  disabledDates
+  disabledDates,
 }) => {
-
   console.log(disabledDates);
   return (
-    <div
+    <aside
       className="
       bg-white 
         rounded-xl 
@@ -43,33 +40,19 @@ const ListingReservation: React.FC<
       flex flex-row items-center gap-1 p-4"
       >
         <div className="text-2xl font-semibold">
-          ₹{" "}
-          {price
-            .toString()
-            .replace(
-              /\B(?=(\d{3})+(?!\d))/g,
-              ","
-            )}
+          ₹ {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </div>
-        <div className="font-light text-neutral-600">
-          night
-        </div>
+        <div className="font-light text-neutral-600">night</div>
       </div>
       <hr />
       <Calendar
         value={dateRange}
         disabledDates={disabledDates}
-        onChange={(value) =>
-          onChangeDate(value.selection)
-        }
+        onChange={(value) => onChangeDate(value.selection)}
       />
       <hr />
       <div className="p-4">
-        <Button
-          disabled={disabled}
-          label="Reserve"
-          onClick={onSubmit}
-        />
+        <Button disabled={disabled} label="Reserve" onClick={onSubmit} />
       </div>
       <hr />
       <div
@@ -85,17 +68,11 @@ const ListingReservation: React.FC<
       >
         <div>Total</div>
         <div>
-          ₹{" "}
-          {totalPrice
-            .toString()
-            .replace(
-              /\B(?=(\d{3})+(?!\d))/g,
-              ","
-            )}
+          ₹ {totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </div>
       </div>
-    </div>
+    </aside>
   );
-}
- 
+};
+
 export default ListingReservation;
