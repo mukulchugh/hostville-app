@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
     <footer className="bg-black text-white footer bottom-0">
       <div className="container mx-auto px-4 py-8">

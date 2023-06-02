@@ -11,17 +11,7 @@ import HeartButton from "../HeartButton";
 import Button from "../Button";
 import ClientOnly from "../ClientOnly";
 
-interface ListingCardProps {
-  data: SafeListing;
-  reservation?: SafeReservation;
-  onAction?: (id: string) => void;
-  disabled?: boolean;
-  actionLabel?: string;
-  actionId?: string;
-  currentUser?: SafeUser | null;
-}
-
-const ListingCard: React.FC<ListingCardProps> = ({
+const ListingCard = ({
   data,
   reservation,
   onAction,
@@ -36,7 +26,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
   const location = getByValue(data.locationValue);
 
   const handleCancel = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
+    (e) => {
       e.stopPropagation();
 
       if (disabled) {

@@ -3,20 +3,7 @@ import { IoMdClose } from "react-icons/io";
 
 import Button from "../Button";
 
-interface ModalProps {
-  isOpen?: boolean;
-  onClose: () => void;
-  onSubmit: () => void;
-  title?: string;
-  body?: React.ReactElement;
-  footer?: React.ReactElement;
-  actionLabel: string;
-  disabled?: boolean;
-  secondaryAction?: () => void;
-  secondaryActionLabel?: string;
-}
-
-const Modal: React.FC<ModalProps> = ({
+const Modal = ({
   isOpen,
   onClose,
   onSubmit,
@@ -62,7 +49,7 @@ const Modal: React.FC<ModalProps> = ({
   }, [secondaryAction, disabled]);
 
   const handleBackdropClick = useCallback(
-    (event: React.MouseEvent<HTMLDivElement>) => {
+    (event) => {
       if (event.target === event.currentTarget) {
         handleClose();
       }
@@ -71,7 +58,7 @@ const Modal: React.FC<ModalProps> = ({
   );
 
   const handleKeyDown = useCallback(
-    (event: React.KeyboardEvent<HTMLDivElement>) => {
+    (event) => {
       if (event.key === "Escape") {
         handleClose();
       }
@@ -90,7 +77,7 @@ const Modal: React.FC<ModalProps> = ({
         onClick={handleBackdropClick}
       >
         <div
-          className="
+          className={`
             relative 
             w-full
             md:w-4/6
@@ -101,7 +88,7 @@ const Modal: React.FC<ModalProps> = ({
             h-full 
             lg:h-auto
             md:h-auto
-          "
+          `}
           onKeyDown={handleKeyDown}
           tabIndex={-1}
         >
@@ -116,7 +103,7 @@ const Modal: React.FC<ModalProps> = ({
             `}
           >
             <div
-              className="
+              className={`
                 translate
                 h-full
                 lg:h-auto
@@ -131,11 +118,11 @@ const Modal: React.FC<ModalProps> = ({
                 bg-white 
                 outline-none 
                 focus:outline-none
-              "
+              `}
             >
               {/*header*/}
               <div
-                className="
+                className={`
                   flex 
                   items-center 
                   p-6
@@ -143,17 +130,17 @@ const Modal: React.FC<ModalProps> = ({
                   justify-center
                   relative
                   border-b-[1px]
-                "
+                `}
               >
                 <button
-                  className="
+                  className={`
                     p-1
                     border-0 
                     hover:opacity-70
                     transition
                     absolute
                     left-9
-                  "
+                  `}
                   onClick={handleClose}
                 >
                   <IoMdClose size={18} />
@@ -165,13 +152,13 @@ const Modal: React.FC<ModalProps> = ({
               {/*footer*/}
               <div className="flex flex-col gap-2 p-6">
                 <div
-                  className="
+                  className={`
                     flex 
                     flex-row 
                     items-center 
                     gap-4 
                     w-full
-                  "
+                  `}
                 >
                   {secondaryAction && secondaryActionLabel && (
                     <Button

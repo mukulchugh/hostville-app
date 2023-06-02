@@ -13,23 +13,7 @@ const Map = dynamic(() => import("../Map"), {
 });
 import CommentsWidget from "../comments";
 
-interface ListingInfoProps {
-  user: SafeUser;
-  description: string;
-  guestCount: number;
-  roomCount: number;
-  bathroomCount: number;
-  category:
-    | {
-        icon: IconType;
-        label: string;
-        description: string;
-      }
-    | undefined;
-  locationValue: string;
-}
-
-const ListingInfo: React.FC<ListingInfoProps> = ({
+const ListingInfo = ({
   user,
   description,
   guestCount,

@@ -7,21 +7,7 @@ import useCountries from "@/app/hooks/useCountries";
 import Heading from "../../components/Heading.jsx";
 import HeartButton from "../HeartButton";
 
-interface ListingHeadProps {
-  title: string;
-  locationValue: string;
-  imageSrc: string;
-  id: string;
-  currentUser?: SafeUser | null;
-}
-
-const ListingHead: React.FC<ListingHeadProps> = ({
-  title,
-  locationValue,
-  imageSrc,
-  id,
-  currentUser,
-}) => {
+const ListingHead = ({ title, locationValue, imageSrc, id, currentUser }) => {
   const { getByValue } = useCountries();
 
   const location = getByValue(locationValue);

@@ -20,7 +20,7 @@ const Search = () => {
 
   const locationLabel = useMemo(() => {
     if (locationValue) {
-      return getByValue(locationValue as string)?.label;
+      return getByValue(locationValue)?.label;
     }
 
     return "Anywhere";
@@ -28,8 +28,8 @@ const Search = () => {
 
   const durationLabel = useMemo(() => {
     if (startDate && endDate) {
-      const start = new Date(startDate as string);
-      const end = new Date(endDate as string);
+      const start = new Date(startDate);
+      const end = new Date(endDate);
       let diff = differenceInDays(end, start);
 
       if (diff === 0) {

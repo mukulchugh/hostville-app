@@ -5,23 +5,11 @@ import Image from "next/image";
 import { useCallback } from "react";
 import { TbPhotoPlus } from "react-icons/tb";
 
-declare global {
-  var cloudinary: any;
-}
-
 const uploadPreset = "hvphfaqp";
 
-interface ImageUploadProps {
-  onChange: (value: string) => void;
-  value: string;
-}
-
-const ImageUpload: React.FC<ImageUploadProps> = ({
-  onChange,
-  value,
-}) => {
+const ImageUpload = ({ onChange, value }) => {
   const handleUpload = useCallback(
-    (result: any) => {
+    (result) => {
       onChange(result.info.secure_url);
     },
     [onChange]
@@ -57,9 +45,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
             "
           >
             <TbPhotoPlus size={50} />
-            <div className="font-semibold text-lg">
-              Click to upload
-            </div>
+            <div className="font-semibold text-lg">Click to upload</div>
             {value && (
               <div
                 className="

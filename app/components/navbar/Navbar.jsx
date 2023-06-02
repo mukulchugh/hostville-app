@@ -4,11 +4,7 @@ import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
 
-interface NavbarProps {
-  currentUser?: SafeUser | null;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
+const Navbar = ({ currentUser }) => {
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm">
       <div

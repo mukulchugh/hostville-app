@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -13,11 +13,7 @@ import MenuItem from "./MenuItem";
 import Avatar from "../Avatar";
 import Link from "next/link";
 
-interface UserMenuProps {
-  currentUser?: SafeUser | null;
-}
-
-const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
+const UserMenu = ({ currentUser }) => {
   const router = useRouter();
 
   const loginModal = useLoginModal();
@@ -71,7 +67,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           font-semibold
           "
           >
-            <Avatar src={currentUser?.image} />
+            <Avatar src={currentUser && currentUser.image} />
             <p
               className="
                 text-sm
@@ -82,7 +78,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 md:w-32
               "
             >
-              {currentUser?.name}
+              {currentUser && currentUser.name}
             </p>
           </div>
         </Link>

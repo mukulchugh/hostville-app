@@ -1,5 +1,4 @@
 "use client";
-
 import axios from "axios";
 import { toast } from "sonner";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -18,14 +17,14 @@ import ImageUpload from "../inputs/ImageUpload";
 import Input from "../inputs/Input";
 import Heading from "../Heading";
 
-enum STEPS {
-  CATEGORY = 0,
-  LOCATION = 1,
-  INFO = 2,
-  IMAGES = 3,
-  DESCRIPTION = 4,
-  PRICE = 5,
-}
+const STEPS = {
+  CATEGORY: 0,
+  LOCATION: 1,
+  INFO: 2,
+  IMAGES: 3,
+  DESCRIPTION: 4,
+  PRICE: 5,
+};
 
 const RentModal = () => {
   const router = useRouter();
@@ -41,7 +40,7 @@ const RentModal = () => {
     watch,
     formState: { errors },
     reset,
-  } = useForm<FieldValues>({
+  } = useForm({
     defaultValues: {
       category: "",
       location: null,
@@ -70,7 +69,7 @@ const RentModal = () => {
     [location]
   );
 
-  const setCustomValue = (id: string, value: any) => {
+  const setCustomValue = (id, value) => {
     setValue(id, value, {
       shouldDirty: true,
       shouldTouch: true,
@@ -86,7 +85,7 @@ const RentModal = () => {
     setStep((value) => value + 1);
   };
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const onSubmit = (data) => {
     if (step !== STEPS.PRICE) {
       return onNext();
     }
@@ -132,16 +131,7 @@ const RentModal = () => {
         title="Which of these best describes your place?"
         subtitle="Pick a category"
       />
-      <div
-        className="
-          grid 
-          grid-cols-1 
-          md:grid-cols-2 
-          gap-3
-          max-h-[50vh]
-          overflow-y-auto
-        "
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto">
         {categories.map((item) => (
           <div key={item.label} className="col-span-1">
             <CategoryInput
@@ -177,7 +167,7 @@ const RentModal = () => {
       <div className="flex flex-col gap-8">
         <Heading
           title="Share some basics about your place"
-          subtitle="What amenitis do you have?"
+          subtitle="What amenities do you have?"
         />
         <Counter
           onChange={(value) => setCustomValue("guestCount", value)}
