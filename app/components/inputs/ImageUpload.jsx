@@ -24,9 +24,10 @@ const ImageUpload = ({ onChange, value }) => {
       }}
     >
       {({ open }) => {
+        console.log(open);
         return (
           <div
-            onClick={() => open?.()}
+            onClick={() => open.call()}
             className="
               relative
               cursor-pointer

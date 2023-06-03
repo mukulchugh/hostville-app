@@ -9,8 +9,8 @@ const ReviewsWidget = () => {
       comId: "012",
       fullName: "Riya Negi",
       avatarUrl: "https://ui-avatars.com/api/name=Riya&background=random",
-      userProfile: "https://www.linkedin.com/in/riya-negi-8879631a9/",
-      text: "Hey, Loved your blog! ",
+      userProfile: "https://www.linkedin.com/in/mukulchugh",
+      text: "Hey, Loved this place ",
       replies: [
         {
           userId: "02a",
@@ -18,14 +18,14 @@ const ReviewsWidget = () => {
           userProfile: "https://www.linkedin.com/in/riya-negi-8879631a9/",
           fullName: "Adam Scott",
           avatarUrl: "https://ui-avatars.com/api/name=Adam&background=random",
-          text: "Thanks! It took me 1 month to finish this project but I am glad it helped out someone!🥰",
+          text: "Thanks! It was so sweet of you🥰",
         },
         {
           userId: "01a",
           comId: "014",
           userProfile: "https://www.linkedin.com/in/riya-negi-8879631a9/",
           fullName: "Riya Negi",
-          avatarUrl: "https://ui-avatars.com/api/name=Riya&background=random",
+          avatarUrl: "https://ui-avatars.com/api/name=Ra&background=random",
           text: "thanks!😊",
         },
       ],
@@ -35,7 +35,7 @@ const ReviewsWidget = () => {
       comId: "017",
       fullName: "Lily",
       userProfile: "https://www.linkedin.com/in/riya-negi-8879631a9/",
-      text: "I have a doubt about the 4th point🤔",
+      text: "How far is it?",
       avatarUrl: "https://ui-avatars.com/api/name=Lily&background=random",
       replies: [],
     },
@@ -53,12 +53,15 @@ const ReviewsWidget = () => {
     <div style={{ width: "100%" }}>
       <CommentSection
         currentUser={{
-          currentUserId: "01a",
-          currentUserImg:
-            "https://ui-avatars.com/api/name=Riya&background=random",
-          currentUserProfile:
-            "https://www.linkedin.com/in/riya-negi-8879631a9/",
-          currentUserFullName: "Riya Negi",
+          currentUserId: localStorage.getItem("userId"),
+          currentUserImg: `https://ui-avatars.com/api/name=${localStorage.userName.replace(
+            /["']/g,
+            ""
+          )}&background=random`,
+          currentUserProfile: "https://www.linkedin.com/in/",
+          currentUserFullName: localStorage
+            .getItem("userName")
+            .replace(/["']/g, ""),
         }}
         commentData={data}
         logIn={{

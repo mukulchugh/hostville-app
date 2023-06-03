@@ -5,6 +5,7 @@ import EmptyState from "@/app/components/EmptyState";
 import getListings from "@/app/actions/getListings";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import ClientOnly from "./components/ClientOnly";
+import Script from "next/script";
 
 const Home = async ({ searchParams }) => {
   const listings = await getListings(searchParams);
@@ -20,6 +21,7 @@ const Home = async ({ searchParams }) => {
 
   return (
     <ClientOnly>
+      <Script src="//code.tidio.co/khswrpsfp6chjnwxb0wvlbybfjzgezjs.js" async />
       <Container>
         <section>
           <h1 className="font-bold text-2xl py-6 mt-12">Stays</h1>
@@ -34,13 +36,18 @@ const Home = async ({ searchParams }) => {
             2xl:grid-cols-6
             gap-8"
           >
-            {listings.map((listing) => (
-              <ListingCard
-                currentUser={currentUser}
-                key={listing.id}
-                data={listing}
-              />
-            ))}
+            {listings.map((listing) => {
+              if (listing.category !== "Experiences") {
+                return (
+                  <ListingCard
+                    currentUser={currentUser}
+                    key={listing.id}
+                    data={listing}
+                  />
+                );
+              }
+              return null; // Skip rendering for listings with the category "Experiences"
+            })}
           </div>
         </section>
         <section>
@@ -56,13 +63,15 @@ const Home = async ({ searchParams }) => {
             2xl:grid-cols-6
             gap-8"
           >
-            {listings.map((listing) => (
-              <ListingCard
-                currentUser={currentUser}
-                key={listing.id}
-                data={listing}
-              />
-            ))}
+            {listings
+              .filter((listing) => listing.category === "Experiences")
+              .map((listing) => (
+                <ListingCard
+                  currentUser={currentUser}
+                  key={listing.id}
+                  data={listing}
+                />
+              ))}
           </div>
         </section>
       </Container>

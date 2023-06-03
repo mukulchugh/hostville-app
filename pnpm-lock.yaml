@@ -29,6 +29,9 @@ dependencies:
   bcrypt:
     specifier: ^5.1.0
     version: 5.1.0
+  country-code-lookup:
+    specifier: ^0.0.23
+    version: 0.0.23
   date-fns:
     specifier: ^2.30.0
     version: 2.30.0
@@ -3109,6 +3112,10 @@ packages:
       parse-json: 5.2.0
       path-type: 4.0.0
       yaml: 1.10.2
+    dev: false
+
+  /country-code-lookup@0.0.23:
+    resolution: {integrity: sha512-kxhIGcau9/X+tgPg9yO2q1OLu8jiYYsdwXuiXzHdsgNChd36xrJMlOba7ka9O1xShCVTiVQPQpq/tcuy4WiW+Q==}
     dev: false
 
   /cross-fetch@3.1.6:

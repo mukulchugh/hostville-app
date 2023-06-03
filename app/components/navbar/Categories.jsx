@@ -14,7 +14,7 @@ import {
 } from "react-icons/gi";
 import { FaSkiing } from "react-icons/fa";
 import { BsSnow } from "react-icons/bs";
-import { IoDiamond } from "react-icons/io5";
+import { IoAirplane, IoDiamond } from "react-icons/io5";
 import { MdOutlineVilla } from "react-icons/md";
 
 import CategoryBox from "../CategoryBox";
@@ -96,6 +96,11 @@ export const categories = [
     label: "Lux",
     icon: IoDiamond,
     description: "This property is brand new and luxurious!",
+  },
+  {
+    label: "Experiences",
+    icon: IoAirplane,
+    description: "This is an experience",
   },
 ];
 
