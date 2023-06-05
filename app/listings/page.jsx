@@ -6,7 +6,7 @@ import getListings from "@/app/actions/getListings";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import ClientOnly from "../components/ClientOnly";
 import Heading from "../components/Heading";
-
+export const dynamic = "force-dynamic";
 const Home = async ({ searchParams }) => {
   const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
