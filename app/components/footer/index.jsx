@@ -48,7 +48,8 @@ const Footer = () => {
         </div>
         <hr className="border-neutral-800 opacity-90 my-8" />
         <div className="text-center text-gray-300">
-          &copy; {new Date().getFullYear()} Hostville. All rights reserved.
+          &copy; {new Date().getFullYear()} Hostville. All rights reserved. -
+          Built by Mukul Chugh and Bhavna Singh
         </div>
       </div>
     </footer>

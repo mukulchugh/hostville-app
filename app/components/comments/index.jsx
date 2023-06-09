@@ -15,7 +15,7 @@ const ReviewsWidget = () => {
         {
           userId: "02a",
           comId: "013",
-          userProfile: "https://www.linkedin.com/in/riya-negi-8879631a9/",
+          userProfile: "https://www.linkedin.com/in/mukulchugh/",
           fullName: "Adam Scott",
           avatarUrl: "https://ui-avatars.com/api/name=Adam&background=random",
           text: "Thanks! It was so sweet of you🥰",
@@ -23,7 +23,7 @@ const ReviewsWidget = () => {
         {
           userId: "01a",
           comId: "014",
-          userProfile: "https://www.linkedin.com/in/riya-negi-8879631a9/",
+          userProfile: "https://www.linkedin.com/in/mukulchugh/",
           fullName: "Riya Negi",
           avatarUrl: "https://ui-avatars.com/api/name=Ra&background=random",
           text: "thanks!😊",
@@ -34,7 +34,7 @@ const ReviewsWidget = () => {
       userId: "02b",
       comId: "017",
       fullName: "Lily",
-      userProfile: "https://www.linkedin.com/in/riya-negi-8879631a9/",
+      userProfile: "https://www.linkedin.com/in/mukulchugh/",
       text: "How far is it?",
       avatarUrl: "https://ui-avatars.com/api/name=Lily&background=random",
       replies: [],

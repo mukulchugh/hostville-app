@@ -59,17 +59,17 @@ const UserMenu = ({ currentUser }) => {
         >
           Add Listing
         </div>
-        <Link href="/profile">
-          <div
-            className="hidden md:flex items-center 
+
+        <div
+          className="hidden md:flex items-center 
           gap-2 
           text-sm
           font-semibold
           "
-          >
-            <Avatar src={currentUser && currentUser.image} />
-            <p
-              className="
+        >
+          <Avatar src={currentUser && currentUser.image} />
+          <p
+            className="
                 text-sm
                 font-semibold
                 text-neutral-800
@@ -77,11 +77,11 @@ const UserMenu = ({ currentUser }) => {
                 w-24
                 md:w-32
               "
-            >
-              {currentUser && currentUser.name}
-            </p>
-          </div>
-        </Link>
+          >
+            {currentUser && currentUser.name}
+          </p>
+        </div>
+
         <div
           onClick={toggleOpen}
           className="
